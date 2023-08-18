@@ -1,0 +1,147 @@
+
+public class array {
+//............................................DISPLAY()..........................................
+      public void printarray(int arr[]) {
+    	  int n=arr.length;
+    	  for (int i=0;i<n;i++) {
+    		  System.out.printf(arr[i]+" ");
+    	  }
+    	  System.out.println();
+      }   
+//............................................INITIALIZATION()...........................
+      public  void arrayDemo() {
+//    	  int A[]=new int[5];
+//    	  int j=0;
+//    	  for(int i=0;i<A.length;i++) {
+//    		  A[i]=j++;
+//    	  }
+    	  int[] A= {3,2,4,6,5};
+    	  //removeeven(A);
+    	  //printarray(A );
+    	  //reversearray(A,0,6);
+    	  //MinValInArr(A);
+    	  //findsecondmax(A);
+    	  //movezeroes(A);
+    	  //resize(A,9);
+    	  //findmissingnumber(A);
+    	  boolean be=palindrome();
+    	  System.out.println(be);
+      }
+//.................................................REMOVE EVEN INTEGERS................................................
+      public void removeeven(int ar[]) {
+    	  int j=0;
+    	  for(int i=0;i<ar.length;i++) {
+    		  if(ar[i]%2!=0) {
+    			   j++;
+    		  }
+    	  }
+    	  int n=ar.length;
+    	  int k[]=new int[j];
+    	  int index=0;
+    	  for(int i=0;i<ar.length;i++) {
+    		  if(ar[i]%2!=0) {
+    			  k[index]=ar[i];
+    			  index++;
+    		  }
+    	  }
+		  printarray(k);
+      }
+//..................................................REVERSE AN ARRAY..........................
+      public void reversearray(int arr[],int start,int end) {
+    	  while(start<end) {
+    		  int temp=arr[start];
+    		  arr[start]=arr[end];
+    		  arr[end]=temp;
+    		  start++; 
+    		  end--; 
+    	  }
+    	  printarray(arr);
+      }
+//..................................................MINIMUM ARRAY().......................
+   public void MinValInArr(int arr[]) {
+	   int min=arr[0];
+	   for(int i=0;i<arr.length;i++) {
+		   if(arr[i]<min) {
+			   min=arr[i];
+		   }
+	   }
+       System.out.println(min); 
+    }
+ //..........................................FIND SECOND MAX.................
+   public void findsecondmax(int arr[]) {
+	   int max=Integer.MIN_VALUE;
+	   int secondmax=Integer.MIN_VALUE;
+	   for(int i=0;i<arr.length;i++) {
+		   if(arr[i]>max) {
+			   secondmax=max;
+			   max=arr[i];			   
+		   }
+	       else if(arr[i]>secondmax && arr[i]!=max) {
+		               secondmax=arr[i];
+	       }
+	   }
+	   System.out.println("second max number is "+secondmax+"\nmax number "+max);
+   }  
+//..............................................MOVE ZEROES TO END.............................
+   public void movezeroes(int arr[]) {
+	   int n=arr.length;
+	   int j=0;
+//	   int k[]=new int[n];
+//	   int index=0;
+	   for(int i=0;i<n;i++) {
+//		   if(arr[i]!=0) {
+//			   k[index]=arr[i];
+//			   index++;
+//		   }
+		   if(arr[i]!=0 && arr[j]==0) {
+			   int temp=arr[i];
+			   arr[i]=arr[j];
+			   arr[j]=temp;
+            }		   
+		    if(arr[j]!=0) {
+			   j++;
+		   }
+	   }
+	   printarray(arr);
+   }
+//.............................................RESIZE AN ARRAY..................................................
+   public void resize(int arr[],int capacity) { 
+	   int temp[]=new int[capacity];
+	   for(int i=0;i<arr.length;i++) {
+		   temp[i]=arr[i];
+	   }
+	   arr=temp;
+	   printarray(arr);
+   }
+//..............................................FIND MISSING NUMBER...............
+public void findmissingnumber(int arr[]) {
+	int n=arr.length+1;
+	int sum=n*(n+1)/2;
+	//for(int num:arr) {
+	//sum=sum-num;
+	for(int num=0;num<arr.length;num++) {
+		sum=sum-arr[num];
+	}
+	System.out.println(sum);
+}
+//................................................PALINDROME STRING...............................
+public boolean palindrome() {
+	String str="madam";
+	//char[] charArray=str.toCharArray();
+	int start=0;
+	int end=str.length()-1;
+	while(start<end) {
+		//if(charArray[start]!=charArray[end]) {
+		if(str.charAt(start)!=str.charAt(end)) {
+			return false;			
+		}
+		start++;
+		end--;
+	}
+	return true;
+}
+   public static void main(String[] args) {
+		array arr=new array();
+		arr.arrayDemo(); 
+	}
+}

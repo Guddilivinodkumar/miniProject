@@ -1,0 +1,95 @@
+
+public class DoublyLinkedList {   
+	    private ListNode head;
+	    private ListNode tail;
+	    private int length;
+   public static class ListNode {
+	    	private int data;
+	    	private ListNode next;
+	    	private ListNode previous;
+   public ListNode(int data) {
+	    	this.data=data;
+	    }
+	    }    
+   public DoublyLinkedList() {
+    	   this.head=null;
+    	   this.tail=null;
+    	   this.length=0;   
+       }
+ //..........................................................INSERT AT BEGINNING...............................................
+   public void insertBeg(int value) {
+	   ListNode newNode= new ListNode(value);
+	   if(head==null) {
+		   tail=newNode;		   
+	   }
+//	   else if(head==tail){
+//		   tail.previous=newNode;
+//		  // newNode.next=head;
+//	   }
+	   else {
+		   newNode=head.previous;
+		  // tail.previous=newNode;
+	   }
+		   newNode.next=head;
+		   head=newNode;
+	   
+   }
+//..........................................................FORWARD DISPLAY...............................................
+   public void fwDisplay() {
+	   ListNode current=head;
+	   System.out.print("Null-->");
+	   while(current!=null) {
+		   System.out.print(current.data+"-->");
+		   current=current.next;
+	   }
+	   System.out.println("Null");
+   }
+ //..........................................................BACKWARD DISPLAY...............................................
+   public void bwDisplay() {
+	   ListNode current=tail;
+	   System.out.print("Null<--");
+	   while(current!=null) {
+		   System.out.print(current.data+"<--");
+		   current=current.previous;
+	   }
+	   System.out.println("Null");
+   }
+   public static void main(String[] args) {
+	   DoublyLinkedList dll=new DoublyLinkedList();
+	   //dll.head=new ListNode(1);
+	  // dll.tail=dll.head;
+//	   ListNode second=new ListNode(4);
+//	   ListNode third=new ListNode(6);
+//	   ListNode fourth=new ListNode(8);
+//	   ListNode fifth=new ListNode(10);
+//	   dll.head.next=second;
+//	   second.next=third;
+//	   third.next=fourth;
+//	   fourth.next=fifth;
+//	   
+//	   dll.tail=fifth;
+//	   fifth.previous=fourth;
+//	   fourth.previous=third;
+//	   third.previous=second;
+//	   second.previous=dll.head;
+//	  // dll.tail=dll.head;
+//
+
+//	   second.previous=dll.head;
+//	   third.previous=second;
+//	   fourth.previous=third;
+//	   fifth.previous=fourth;
+//	   dll.tail=fifth;
+	   dll.insertBeg(2);
+	   dll.insertBeg(4);
+	   dll.insertBeg(6);
+	   dll.insertBeg(7);
+	   dll.insertBeg(9);
+
+	   
+	   dll.fwDisplay();
+	   dll.bwDisplay();
+	   
+   }
+  
+}

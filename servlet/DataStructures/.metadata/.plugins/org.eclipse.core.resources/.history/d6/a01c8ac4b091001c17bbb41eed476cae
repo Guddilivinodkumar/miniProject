@@ -1,0 +1,35 @@
+
+public class array {
+      public void printarray(int arr[]) {
+    	  int n=arr.length;
+    	  for (int i=0;i<n;i++) {
+    		  System.out.printf(arr[i]+" ");
+    	  }
+    	  System.out.println();
+      }   
+      public  void arrayDemo() {
+//    	  int A[]=new int[5];
+//    	  int j=0;
+//    	  for(int i=0;i<A.length;i++) {
+//    		  A[i]=j++;
+//    	  }
+    	  int[] A= {3,2,4,7,10,6,5};
+    	  oddintegers(A);
+    	  //printarray(A );
+      }
+      public void oddintegers(int ar[]) {
+    	  int k[]=new int[ar.length];
+    	  for(int i=0;i<ar.length;i++) {
+    		  if(ar[i]%2!=0) {
+    			  k[i]=ar[i];
+    		  }
+    		  printarray(k);
+    	  }
+      }
+      
+      
+      public static void main(String[] args) {
+		array arr=new array();
+		arr.arrayDemo();
+	}
+}

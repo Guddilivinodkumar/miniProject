@@ -1,0 +1,49 @@
+
+public class Queue {
+       private ListNode front;
+       private ListNode rear;
+       private int length;
+       private class ListNode{
+    	   private int data;
+    	   private ListNode next;
+    	   public ListNode(int data) {
+    		   this.data=data;
+    		   this.next=null;
+    	   }
+       }
+       public Queue() {
+    	   front=null;
+    	   rear=null;
+       }
+       public int length() {
+    	   return length;
+       }
+       public boolean isEmpty() {
+    	   return length==0;
+       }
+       public void Enque(int data) {
+    	   ListNode temp= new ListNode(data);
+    	    if(rear==null) {
+    		   front=temp;
+    	   }
+    	   else {
+    		   rear.next=temp;
+    	   }
+    	   rear=temp;
+       }
+       public void display() {
+    	   ListNode current=front;
+    	   if(rear==null &&front==null) {
+    		   System.out.println("empty queue");
+    	   }
+    	   while(current!=null) {
+    		   System.out.println(current.data+"-->");
+    		   current=current.next;
+    	   }
+       }
+       public static void main(String[] args) {
+		Queue Q=new Queue();
+		//Q.Enque(4);
+		Q.display();
+	}
+}

@@ -1,0 +1,64 @@
+
+public class DoublyLinkedList {   
+	    private ListNode head;
+	    private ListNode tail;
+	    private int length;
+   public static class ListNode {
+	    	private int data;
+	    	private ListNode next;
+	    	private ListNode previous;
+   public ListNode(int data) {
+	    	this.data=data;
+	    }
+	    }    
+   public DoublyLinkedList() {
+    	   this.head=null;
+    	   this.tail=null;
+    	   this.length=0;   
+       }
+//..........................................................FORWARD DISPLAY...............................................
+   public void fwDisplay() {
+	   ListNode current=head;
+	   while(current!=null) {
+		   System.out.print(current.data+"-->");
+		   current=current.next;
+	   }
+	   System.out.println("Null");
+   }
+ //..........................................................BACKWARD DISPLAY...............................................
+   public void bwDisplay() {
+	   ListNode current=head;
+	   while(current!=null) {
+		   System.out.print(current.data+"<--");
+		   current=current.previous;
+	   }
+	   System.out.println("Null");
+   }
+   public static void main(String[] args) {
+	   DoublyLinkedList dll=new DoublyLinkedList();
+	   dll.head=new ListNode(1);
+	   ListNode second=new ListNode(4);
+	   ListNode third=new ListNode(6);
+	   ListNode fourth=new ListNode(8);
+	   ListNode fifth=new ListNode(10);
+	   dll.head.next=second;
+	   second.next=third;
+	   third.next=fourth;
+	   fourth.next=fifth;
+	   
+//	   dll.tail=fifth;
+//	   fifth.previous=fourth;
+//	   fourth.previous=third;
+//	   third.previous=second;
+//	   second.previous=dll.head;
+
+	   second.previous=dll.head;
+	   third.previous=second;
+	   fourth.previous=third;
+	   fifth.previous=fourth;
+	   dll.tail=fifth;
+	   dll.fwDisplay();
+	   dll.bwDisplay();
+	   
+   }
+}

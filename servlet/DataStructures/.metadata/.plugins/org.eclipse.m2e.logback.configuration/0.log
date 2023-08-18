@@ -1,0 +1,2 @@
+2022-06-25 12:00:14,253 [Worker-13: Creating maven-archetype-quickstart] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /telusko/src/main/java
+2022-06-25 12:00:14,538 [Worker-13: Creating maven-archetype-quickstart] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /telusko/src/test/java

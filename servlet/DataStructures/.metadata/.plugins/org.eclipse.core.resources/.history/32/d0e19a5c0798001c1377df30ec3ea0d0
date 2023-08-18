@@ -1,0 +1,113 @@
+
+//public class Queue {
+//       private ListNode front;
+//       private ListNode rear;
+//       private int length;
+//       private class ListNode{
+//    	   private int data;
+//    	   private ListNode next;
+//    	   public ListNode(int data) {
+//    		   this.data=data;
+//    		   this.next=null;
+//    	   }
+//       }
+//       public Queue() {
+//    	   front=null;
+//    	   rear=null;
+//       }
+//       public int length() {
+//    	   return length;
+//       }
+//       public boolean isEmpty() {
+//    	   return length==0;
+//       }
+//       public void Enque(int data) {
+//    	   ListNode temp= new ListNode(data);
+//    	    if(rear==null) {
+//    		   front=temp;
+//    	   }
+//    	   else {
+//    		   rear.next=temp;
+//    	   }
+//    	   rear=temp;
+//       }
+//       public void deque() {
+//    	   if(rear==null &&front==null) {
+//    		   System.out.println("empty queue");
+//    	   }
+//    	   else if(rear==front){
+//    		   front=null;
+//    		   rear=null;
+//    	   }
+//    	   else {
+//    		   front=front.next;
+//    	   }
+//       }
+//       public void display() {
+//    	   ListNode current=front;
+//    	   if(rear==null &&front==null) {
+//    		   System.out.println("empty queue");
+//    	   }
+//    	   while(current!=null) {
+//    		   System.out.print(current.data+"-->");
+//    		   current=current.next;
+//    	   }
+//		   System.out.print("null\n");
+//
+//       }
+//       public static void main(String[] args) {
+//		Queue Q=new Queue();
+//		Q.Enque(4);
+//		Q.Enque(6);
+//		Q.Enque(7);
+//		Q.Enque(8);
+//		Q.Enque(9);
+//		Q.display();
+//		Q.deque();
+//		Q.deque();
+//		Q.deque();
+//		Q.deque();
+//		Q.display();
+//		Q.deque();
+//	//	Q.Enque(1);
+//		Q.display();
+//	}
+//}
+//.......................................QUEUE USING ARRAY..............
+public class Queue{
+	static final  int MAX=1000;
+	int front;
+	int rear;
+	int a[]=new int[MAX];
+	Queue() {
+		front=-1;
+		rear=-1;
+	}
+	public void Enque(int x) {
+		if(rear>=(MAX-1)) {
+			System.out.println("Queue overloaded");
+		}
+		else {
+			a[++rear]=x;
+			System.out.println(x+" pushed into queue");
+		}
+	}
+	public void deque() {
+		if(rear==-1) {
+			System.out.println("empty deque");
+		}
+		else {
+			System.out.println(front+"deleted from queue");
+          int x= a[front--];
+		}
+	}
+	public static void main(String[] args) {
+		Queue Q=new Queue();
+		Q.Enque(1);
+		Q.Enque(2);
+		Q.Enque(3);
+		Q.deque();
+		Q.deque();
+		
+	}
+}
